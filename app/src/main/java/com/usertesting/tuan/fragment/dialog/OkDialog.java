@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.usertesting.tuan.activity.R;
 import com.usertesting.tuan.data.Answer;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,17 +26,19 @@ public class OkDialog extends DialogFragment {
 
     public static final String TAG = OkDialog.class.getSimpleName();
     public static final String BUNDLE_DATA = TAG + "BUNDLE_DATA";
+    public static final String BUNDLE_DATA_OS_LIST = TAG + "BUNDLE_DATA_OS_LIST";
     protected Context mContext;
     private TextView mDialogTitle;
     private TextView mDialogBody;
     private Button mPositiveButton;
 
-    public static OkDialog newInstance(ArrayList<String> requirements) {
+    public static OkDialog newInstance(ArrayList<String> info, ArrayList<String> osList) {
 
         OkDialog dialog = new OkDialog();
-        if(requirements != null) {
+        if(info != null) {
             Bundle args = new Bundle();
-            args.putStringArrayList(BUNDLE_DATA, requirements);
+            args.putStringArrayList(BUNDLE_DATA, info);
+            args.putStringArrayList(BUNDLE_DATA_OS_LIST, osList);
             dialog.setArguments(args);
         }
         return dialog;
@@ -59,11 +63,20 @@ public class OkDialog extends DialogFragment {
         mDialogBody = (TextView) ret.findViewById(R.id.dialog_body);
         String bodyText = "";
         Bundle args = getArguments();
-        if(args != null && args.getStringArrayList(BUNDLE_DATA) != null) {
+        if(args != null && args.getStringArrayList(BUNDLE_DATA) != null
+                && args.getStringArrayList(BUNDLE_DATA) != null) {
             List<String> list = args.getStringArrayList(BUNDLE_DATA);
             bodyText = getResources().getString(R.string.recorder_type) + ": " + list.get(0) + "\n";
             bodyText +=  getResources().getString(R.string.type) + ": " + list.get(1) + "\n";
             bodyText += getResources().getString(R.string.reference_id) + ": " + list.get(2) + "\n";
+            bodyText += "OS: ";
+            List<String> os = args.getStringArrayList(BUNDLE_DATA_OS_LIST);
+            for(int i = 0; i < os.size(); i++) {
+                if(i > 0) {
+                    bodyText += ",";
+                }
+                bodyText += " " + WordUtils.capitalize(os.get(i));
+            }
         }
         mDialogBody.setText(bodyText);
         mPositiveButton = (Button) ret.findViewById(R.id.positive_button);

@@ -56,6 +56,7 @@ public class TestListFragment extends Fragment {
     @BindString(R.string.contact_for_assistance) String contactAssitance;
     @BindString(R.string.test) String test;
     @BindString(R.string.introduction) String introduction;
+    @BindString(R.string.form_factor) String formFactor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -206,13 +207,13 @@ public class TestListFragment extends Fragment {
                     tvDecline.setOnClickListener(declineOnClickListener);
                 }
                 String bodyText = introduction + ": " + Utils.capFirstLetter(item.getIntroduction());
-                bodyText += "\nOS: ";
-                List<String> os = item.getOperatingSystems();
-                for(int i = 0; i < os.size(); i++) {
+                List<String> list = item.getFormFactor();
+                bodyText += "\n" + formFactor;
+                for(int i = 0; i < list.size(); i++) {
                     if(i > 0) {
                         bodyText += ",";
                     }
-                    bodyText += " " + WordUtils.capitalize(os.get(i));
+                    bodyText += " " + WordUtils.capitalize(list.get(i));
                 }
                 holder.body.setText(bodyText);
             }
@@ -266,7 +267,8 @@ public class TestListFragment extends Fragment {
         list.add(item.getRecorderType());
         list.add(item.getType());
         list.add(item.getReferenceId());
-        OkDialog dialog = OkDialog.newInstance(list);
+        ArrayList<String> osList = (ArrayList)item.getOperatingSystems();
+        OkDialog dialog = OkDialog.newInstance(list, osList);
         dialog.show(fm, OkDialog.TAG);
     }
 
