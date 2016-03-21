@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UserTestingListView</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="take_screener">Take Screener</string>
+    <string name="this_test_for_you">This test is reserved for you.</string>
+    <string name="contact_for_assistance">If you need assistance, please contact support@usertesting.com</string>
+    <string name="take_test">Take Test</string>
+    <string name="test">Test</string>
+    <string name="introduction">Introduction</string>
+    <string name="empty_list_text">No data to show</string>
+    <string name="test_info">Test Info</string>
+    <string name="recorder_type">Recorder Type</string>
+    <string name="type">Type</string>
+    <string name="reference_id">Reference ID</string>
+    <string name="submit">Submit</string>
+</resources>

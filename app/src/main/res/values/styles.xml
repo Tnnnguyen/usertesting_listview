@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="button_header_text_style" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/button_header_text_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">@dimen/test_item_heading_text_padding</item>
+    </style>
+
+    <style name="listview_button_style" parent="@android:style/Widget.Button">
+        <item name="android:paddingLeft">@dimen/button_text_side_padding</item>
+        <item name="android:paddingRight">@dimen/button_text_side_padding</item>
+        <item name="android:background">@drawable/rounded_corner_yellow_button</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

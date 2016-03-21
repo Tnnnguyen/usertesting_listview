@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@drawable/item_shadow">
+
+    <!-- header -->
+    <TextView
+        android:id="@+id/test_item_heading"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/test_item_heading_height"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        style="@style/button_header_text_style" />
+
+    <!-- text body -->
+    <TextView
+        android:id="@+id/test_item_body"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/test_item_main_height"
+        android:layout_below="@+id/test_item_heading"
+        android:padding="@dimen/test_item_heading_text_padding"
+        android:textSize="@dimen/test_item_body_text_size"/>
+
+    <!-- button container -->
+    <RelativeLayout
+        android:id="@+id/test_item_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/test_item_button_container_height"
+        android:layout_alignParentBottom="true">
+
+        <!-- line divider -->
+        <ImageView
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/horizontal_line"
+            android:visibility="gone"/>
+
+        <!-- decline button -->
+        <TextView
+            android:id="@+id/test_item_decline_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/test_item_decline_button_left_margin"
+            android:visibility="gone"
+            android:textSize="@dimen/test_item_decline_button_text_size"
+            android:textColor="@color/light_blue"
+            android:text="@string/decline"/>
+
+        <!-- take screener button -->
+        <Button
+            android:id="@+id/test_item_take_screener_button"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:text="@string/take_screener"
+            style="@style/listview_button_style"/>
+
+        <!-- accept button -->
+        <Button
+            android:id="@+id/test_item_accept_button"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/button_right_margin"
+            android:visibility="gone"
+            android:text="@string/accept"
+            style="@style/listview_button_style"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/screener_question"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/test_item_heading_height"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/user_testing_blue"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/screener_submit_button"
+        android:text="@string/submit"
+        android:layout_gravity="center_horizontal"
+        style="@style/listview_button_style"/>
+
+</LinearLayout>
