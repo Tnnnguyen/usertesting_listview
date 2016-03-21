@@ -71,6 +71,12 @@ public class ScreenerFragment extends Fragment {
         }
     }
 
+    /**
+     * Create an instance for ScreenerFragment object
+     * @param list the list of Answer objects
+     * @param question the screener's question
+     * @return instance of ScreenerFragment
+     */
     public static ScreenerFragment newInstance(List<Answer> list, String question) {
         ScreenerFragment frag = new ScreenerFragment();
         Bundle bundle = new Bundle();

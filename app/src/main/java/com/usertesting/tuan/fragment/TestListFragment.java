@@ -73,6 +73,9 @@ public class TestListFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Make a web service call and retrieve test data
+     */
     private void initListView() {
         new AsyncTask<String, Void, List<TestItem>>(){
             @Override
@@ -238,6 +241,10 @@ public class TestListFragment extends Fragment {
         }
     };
 
+    /**
+     * Show screener question and answer for this test
+     * @param position the position of the test item in the list
+     */
     private void showScreener(int position) {
         NextQuestion nq = mTestItemList.get(position).getScreener().getNextQuestion();
         ArrayList<Answer> list = (ArrayList)nq.getAnswersList();
@@ -248,6 +255,10 @@ public class TestListFragment extends Fragment {
         }
     }
 
+    /**
+     * Show additional information on a test
+     * @param position the position of the test item in the list
+     */
     private void showAcceptanceRequirement(int position) {
         FragmentManager fm = getFragmentManager();
         ArrayList<String> list = new ArrayList<>();
@@ -259,6 +270,10 @@ public class TestListFragment extends Fragment {
         dialog.show(fm, OkDialog.TAG);
     }
 
+    /**
+     * Remove a test when decline button is clicked
+     * @param position the position of the test item in the list
+     */
     private void removeItemOnDecline(int position) {
         mTestItemList.remove(position);
         mAdapter.notifyDataSetChanged();

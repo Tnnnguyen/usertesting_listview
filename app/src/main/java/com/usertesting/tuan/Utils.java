@@ -5,6 +5,11 @@ package com.usertesting.tuan;
  */
 public class Utils {
 
+    /**
+     * Capitalize the first letter of the given string
+     * @param input the string to be capitalized
+     * @return the capitalized string
+     */
     public static String capFirstLetter(String input) {
         if(input == null || input.length() == 0){
             return input;

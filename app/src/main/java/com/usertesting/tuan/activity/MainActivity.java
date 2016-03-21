@@ -30,12 +30,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Show ScreenerFragment
+     * @param list the list of questions for this screener
+     * @param question the question of the screener
+     */
     public void showScreenerFragment(List<Answer> list, String question) {
         FragmentTransaction ft = getFragmentTransaction();
         ft.add(R.id.main_container, ScreenerFragment.newInstance(list, question), ScreenerFragment.TAG)
                 .addToBackStack(null).commit();
     }
 
+    /**
+     * Get a FragmentTransaction instance
+     * @return instance of FragmentTraansaction
+     */
     public FragmentTransaction getFragmentTransaction() {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
