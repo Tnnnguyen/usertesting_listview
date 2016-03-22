@@ -87,6 +87,14 @@ public class TestListFragment extends Fragment {
             protected void onPostExecute(List<TestItem> items) {
                 mLoadingWheel.setVisibility(View.GONE);
                 if(items != null) {
+                    //Per requirement: only display tests that are for Android OS and state: available
+                    //remove unwanted tests from list
+                    for(Iterator<TestItem> iter = items.iterator(); iter.hasNext(); ) {
+                        TestItem item = iter.next();
+                        if (!item.getState().equals(TestItem.STATE_AVAILABLE) || !item.getOperatingSystems().contains(TestItem.OS_ANDROID)) {
+                            iter.remove();
+                        }
+                    }
                     mTestItemList = items;
                     mListView.setAdapter(mAdapter);
                 }
@@ -101,14 +109,6 @@ public class TestListFragment extends Fragment {
                     RestAdapter adapter = restBuilder.build();
                     ApiService service = adapter.create(ApiService.class);
                     items = service.getTestItems();
-                    //Per requirement: only display tests that are for Android OS and state: available
-                    //remove unwanted tests from list
-                    for(Iterator<TestItem> iter = items.iterator(); iter.hasNext(); ) {
-                        TestItem item = iter.next();
-                        if (!item.getState().equals(TestItem.STATE_AVAILABLE) || !item.getOperatingSystems().contains(TestItem.OS_ANDROID)) {
-                            iter.remove();
-                        }
-                    }
                 }
                 catch (RetrofitError e) {
                     e.printStackTrace();
