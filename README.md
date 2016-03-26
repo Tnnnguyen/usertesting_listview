@@ -11,7 +11,7 @@ A few things to consider:
 
 Tests that have state:reserved should not be clickable and distinct from other tests
 
-Only display tests that are for the android platform and state:available
+Only display tests that are for the android platform and state:available (to show all tests, comment out lines 92-97 in TestListFragment.java).
 
 Tests that have non-null screeners should display a button that says “Take Screener”. Other tests will show a button that says “Accept”
 
